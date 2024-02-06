@@ -3,7 +3,7 @@ import './NewExpense.css'
 
 const NewExpense = (props) => {
     return(
-        <div class="new-expense">
+        <div className="new-expense">
             <ExpenseForm />
         </div>
     )
