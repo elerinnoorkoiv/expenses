@@ -16,11 +16,11 @@ const Expenses = (props) => {
         },
       ]
     return(
-        <Card className='card expenses'>
+        <div className='expenses'>
             <ExpenseItem expenseData={expenses[0]} />
             <ExpenseItem expenseData={expenses[1]} />
-        </Card>
-    )
-}
+        </div>
+    );
+};
 
 export default Expenses
