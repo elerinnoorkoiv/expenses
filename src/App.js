@@ -5,7 +5,12 @@ function App() {
   
   return (
     <div className="App">
-      <Expenses expenses={Expenses}/>
+      <div className='card expenses'>
+        <div className='card'>
+          <Expenses expenses={Expenses}
+          />
+        </div>
+      </div>
     </div>
   );
 }
