@@ -1,6 +1,7 @@
 import './Expenses.css'
 import Card from '../UI/Card'
 import ExpenseItem from './ExpenseItem'
+import ExpensesFilter from './ExpensesFilter'
 
 const Expenses = (props) => {
     const expenses = [
@@ -15,8 +16,12 @@ const Expenses = (props) => {
           price: 99.99 
         },
       ]
+    const saveSelectedYearHandler = (selectedYear) => {
+      console.log(selectedYear)
+    }
     return(
         <div className='expenses'>
+            <ExpensesFilter saveSelectedYear = {saveSelectedYearHandler}/>
             <ExpenseItem expenseData={expenses[0]} />
             <ExpenseItem expenseData={expenses[1]} />
         </div>
