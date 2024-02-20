@@ -9,7 +9,7 @@ const Expenses = (props) => {
   })
     
     const saveSelectedYearHandler = (selectedYear) => {
-      console.log(selectedYear)
+      console.log('Year data in Expenses.js', selectedYear)
     }
     return(
         <div className='expenses'>
