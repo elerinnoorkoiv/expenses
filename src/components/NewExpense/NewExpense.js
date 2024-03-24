@@ -1,20 +1,43 @@
-import ExpenseForm from "./ExpenseForm"
-import './NewExpense.css'
+
+import React, { useState, useEffect } from 'react';
+import './NewExpense.css';
+import ExpenseForm from './ExpenseForm';
 
 const NewExpense = (props) => {
-    const saveExpenseDatahandler = (enteredExpenseData) =>{
-        const expenseData = {
-            ...enteredExpenseData,
-            id: Math.random().toString()
-        }
-        props.onAddExpense(expenseData)
-        console.log(expenseData)
-    }
-    return(
-        <div className="new-expense">
-            <ExpenseForm onSaveExpenseData={saveExpenseDatahandler} />
-        </div>
-    )
-}
+  const [editForm, setEditForm] = useState(false);
 
-export default NewExpense
+  useEffect(() => {
+    console.log(editForm ? 'Form edit open' : 'Form edit close');
+  }, [editForm]);
+
+  const toggleFormHandler = () => {
+    setEditForm((prevEditForm) => !prevEditForm);
+  };
+
+  const onSaveExpenseDataHandler = (enteredExpenseData) => {
+    const expenseData = {
+      ...enteredExpenseData,
+      id: Math.random().toString(),
+    };
+    props.onAddExpense(expenseData);
+    setEditForm(false);
+  };
+
+  const onCancelHandler = () => {
+    setEditForm(false);
+  };
+
+  return (
+    <div className='new-expense'>
+      {!editForm && <button onClick={toggleFormHandler}>Add New Expense</button>}
+      {editForm && (
+        <ExpenseForm
+          onSaveExpenseData={onSaveExpenseDataHandler}
+          onCancel={onCancelHandler}
+        />
+      )}
+    </div>
+  );
+};
+
+export default NewExpense;
