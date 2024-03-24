@@ -22,7 +22,7 @@ const Expenses = (props) => {
       <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
       <ExpenseItem expenses={filteredExpenses}/>
     </Card>
-  )
-}
+  );
+};
 
 export default Expenses
